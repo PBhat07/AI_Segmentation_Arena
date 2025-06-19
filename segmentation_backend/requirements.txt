@@ -1,0 +1,10 @@
+gradio
+opencv-python
+numpy
+ultralytics
+segment-anything
+supervision
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=0.15.0
+httpx # For making async HTTP requests to the Gemini API
