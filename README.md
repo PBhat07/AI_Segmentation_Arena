@@ -109,7 +109,7 @@ GOOGLE_API_KEY = "YOUR_GEMINI_API_KEY_HERE"
 python app.py
 ```
 
-Visit: [http://127.0.0.1:7860](http://127.0.0.1:7860)
+Visit: [http://127.0.0.1:7860](http://127.0.0.1:7860) (Replace this URL with the one visible in your terminal upon running app.py script)
 
 ---
 
