@@ -136,9 +136,9 @@ Visit: [http://127.0.0.1:7860](http://127.0.0.1:7860) (Replace this URL with the
 
 > You can upload screenshots or result images to the `results/` folder and link them here. For example:
 
-![SAM Results](results/cat_sam_seg.png),
-![YOLOv8 Results](results/cat_yolov8_seg.png),
-![LLM Feedback](results/cat-description.png)
+![SAM Results](Results/cat_sam_seg.png),
+![YOLOv8 Results](Results/cat_yolov8_seg.png),
+![LLM Feedback](Results/cat_description.png)
 
 ---
 
