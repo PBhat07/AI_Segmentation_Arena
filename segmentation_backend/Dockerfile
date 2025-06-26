@@ -1,6 +1,17 @@
 # Use a Python base image
 FROM python:3.10-slim-buster
 
+# Install system dependencies required by OpenCV
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1-mesa-glx \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libglib2.0-0 \  # <--- ADD THIS LINE
+    && rm -rf /var/lib/apt/lists/*  
+    # Clean up apt cache to keep image small
+
+
 # Set the working directory in the container
 WORKDIR /app
 

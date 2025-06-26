@@ -226,6 +226,7 @@ async def segment_and_analyze_image(image_rgb_input: np.ndarray):
     return (annotated_yolo_image, annotated_sam_image, metrics_display, llm_insights_text)
 
 
+
 # --- Gradio Interface Setup ---
 if __name__ == "__main__":
     # Define Gradio Interface components
@@ -238,7 +239,7 @@ if __name__ == "__main__":
         gr.Markdown(label="AI Insights & Comparison", elem_id="insights-output")
     ]
 
-# Create the Gradio Interface
+    # Create the Gradio Interface
     demo = gr.Interface(
         fn=segment_and_analyze_image,
         inputs=inputs,
@@ -249,15 +250,15 @@ if __name__ == "__main__":
         live=False,
         # Applying the custom theme
         theme = gr.themes.Soft(
-    primary_hue="purple",
-    secondary_hue="pink",
-    neutral_hue="zinc",
-    font=[ "Inter", "sans-serif" ]
-),
+            primary_hue="purple",
+            secondary_hue="pink",
+            neutral_hue="zinc",
+            font=[ "Inter", "sans-serif" ]
+        ),
         css="""
         body {
             background-color: #0f0f0f !important;
-            color: #ffffff !important;
+            color: #f8fafc !important;
             font-family: 'Inter', sans-serif !important;
         }
 
@@ -278,7 +279,7 @@ if __name__ == "__main__":
         #component-upload-image-button > button {
             background-color: #1a1a1a !important;
             border-radius: 9999px !important;
-            color: #ffffff !important;
+            color: #f8fafc !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -289,6 +290,7 @@ if __name__ == "__main__":
 
         #component-upload-image-button > button:hover {
             background-color: transparent !important;
+            color: #f8fafc !important;
         }
 
         /* Adjust image containers */
@@ -313,31 +315,55 @@ if __name__ == "__main__":
         }
 
         .block-title, .label {
-            color: ##ffffff !important;
+            color: #f8fafc !important;
             font-weight: 700 !important;
         }
         .label-wrap > label {
             font-weight: 600 !important;
+            color: #f1f5f9 !important;
         }
 
-        /* Headings and text styling */
+        /* Main title styling - Bold and visible */
         h1.gr-text-center {
-            font-size: 3.75rem !important;
-            background-image: linear-gradient(to right, #A78BFA, #EC4899, #EF4444) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: ##ffffff !important;
-            background-clip: text !important;
-            color: ##ffffff !important;
-            font-weight: 800 !important;
+            font-size: 4rem !important;
+            color: #06B6D4 !important;
+            font-weight: 900 !important;
+            text-align: center !important;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+            letter-spacing: -0.025em !important;
+            margin-bottom: 1rem !important;
         }
+
+
+        /* Description text - Make it visible */
+        .gradio-container p, .gr-prose p {
+            color: #e2e8f0 !important;
+            font-size: 1.125rem !important;
+            line-height: 1.6 !important;
+            text-align: center !important;
+        }
+
         .gradio-h2 {
             font-size: 2rem !important;
             font-weight: 700 !important;
             text-align: center !important;
             margin-bottom: 2rem !important;
+            color: #f1f5f9 !important;
         }
 
-        /* Markdown output */
+        /* All general text elements */
+        .gr-prose, .gr-prose *, p, span, div {
+            color: #e2e8f0 !important;
+        }
+
+        /* Markdown output styling */
+        #metrics-output, #insights-output {
+            background-color: #1a1a1a !important;
+            border-radius: 0.75rem !important;
+            padding: 1.5rem !important;
+            border: 1px solid #374151 !important;
+        }
+
         #metrics-output > h3, #insights-output > h3 {
             color: #A78BFA !important;
             font-weight: 700 !important;
@@ -345,7 +371,7 @@ if __name__ == "__main__":
             margin-bottom: 0.5em !important;
         }
         #metrics-output > p, #insights-output > p {
-            color: #f3f4f6 !important;
+            color: #f1f5f9 !important;
             margin-bottom: 0.5em !important;
             line-height: 1.6 !important;
         }
@@ -361,6 +387,7 @@ if __name__ == "__main__":
         }
         #metrics-output li, #insights-output li {
             margin-bottom: 0.25em !important;
+            color: #e2e8f0 !important;
         }
 
         /* Code blocks */
@@ -377,33 +404,34 @@ if __name__ == "__main__":
             border-radius: 8px !important;
             overflow-x: auto !important;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;
+            color: #f1f5f9 !important;
         }
 
-        /* Gradient titles */
+        /* Enhanced gradient titles */
         .metrics-title {
-            background-image: linear-gradient(to right, #FFD700, #FF69B4, #FF4500) !important;
+            background-image: linear-gradient(to right, #FEF3C7, #FCD34D) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
-            color: #FFD700 !important;  /* Fallback color for non-webkit or low contrast */
+            color: #FCD34D !important;  /* Bright fallback */
             font-weight: 800 !important;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);  /* Optional: adds depth */
+            font-size: 1.5rem !important;
         }
         .insights-title {
-            background-image: linear-gradient(to right, #4CAF50, #8BC34A) !important;
+            background-image: linear-gradient(to right, #DCFCE7, #86EFAC) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
-            color: #4CAF50 !important;  /* Fallback color */
+            color: #86EFAC !important;  /* Bright fallback */
             font-weight: 800 !important;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            font-size: 1.5rem !important;
         }
 
         /* Image placeholders */
         .gr-image-placeholder {
             background-color: #222 !important;
             border: 1px dashed #555 !important;
-            color: #888 !important;
+            color: #cbd5e1 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -414,9 +442,25 @@ if __name__ == "__main__":
         .gr-image-placeholder::before {
             content: "Image will appear here" !important;
             font-size: 1.125rem !important;
+            color: #cbd5e1 !important;
+        }
+
+        /* Input and textarea styling */
+        input, textarea, select {
+            background-color: #1a1a1a !important;
+            color: #f1f5f9 !important;
+            border: 1px solid #374151 !important;
+        }
+
+        /* Button text */
+        button {
+            color: #f8fafc !important;
         }
         """
     )
 
-
-    demo.launch(share=False)   # Removed server_name and server_port for default Gradio behavior
+    port = int(os.environ.get("PORT", 7860)) # <-- IMPORTANT CHANGE HERE
+    host = "0.0.0.0" # <-- IMPORTANT: Listen on all interfaces
+    demo.launch(server_name=host,
+        server_port=port,
+        share=False)   # Removed server_name and server_port for default Gradio behavior
