@@ -86,10 +86,10 @@ bash dependencies.sh
   - `sam_vit_h_4b8939.pth` (more accurate, slower) OR
   - `sam_vit_b_01ec64.pth` (lighter, faster)
   Direct Download Commands:
-# For ViT-H (High Accuracy) - 2.6GB
+ **For ViT-H (High Accuracy) - 2.6GB**
 ``` wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth ```
 
-# For ViT-B (Lightweight) - 375MB
+ **For ViT-B (Lightweight) - 375MB**
  ```wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth ```
 - Place it into: `segmentation_backend/models/`
 
