@@ -16,14 +16,13 @@ Welcome to **AI Segmentation Arena** — a futuristic playground where *pixels m
 ## 📁 Folder Structure
 
 ```
-weekend_project_01/
-├── segmentation_backend/
-│   ├── app.py                # Main Gradio app with ML and LLM logic
-│   ├── dependencies.sh       # Bash script to install Python dependencies
-│   ├── Dockerfile            # Docker setup for cloud deployment
-│   ├── models/
-│   │   └── sam_vit_h_4b8939.pth  # SAM model checkpoint
-│   └── README.md             # This file!
+segmentation_backend/
+   ├── app.py                # Main Gradio app with ML and LLM logic
+   ├── dependencies.sh       # Bash script to install Python dependencies
+   ├── Dockerfile            # Docker setup for cloud deployment
+   ├── models/
+   │   └── sam_vit_h_4b8939.pth  # SAM model checkpoint
+   └── README.md             # This file!
 ```
 
 ---
@@ -86,6 +85,12 @@ bash dependencies.sh
 - Download:
   - `sam_vit_h_4b8939.pth` (more accurate, slower) OR
   - `sam_vit_b_01ec64.pth` (lighter, faster)
+  Direct Download Commands:
+# For ViT-H (High Accuracy) - 2.6GB
+``` wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth ```
+
+# For ViT-B (Lightweight) - 375MB
+ ```wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth ```
 - Place it into: `segmentation_backend/models/`
 
 Then update `app.py`:
